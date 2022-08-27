@@ -1,1 +1,4 @@
-Dia 1 -
+Contextualização do cenário na área de banco de dados
+Tudo que fazemos e é registrado são dados - O dados tem o poder de atingir seu público de forma acertiva (otimiza o negócio).
+Os dados precisam ser tratados para ser tranformados em informações úteis (papel do cientista de dados)
+Os dados precisam estar seguros.
