@@ -1,2 +1,2 @@
-# dio-introducao-Banco-de-dados
+# dio-introducao-banco-de-dados
 Curso de introdução de banco de dados DIO - Juliana Zanelatto
