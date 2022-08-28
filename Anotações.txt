@@ -1,4 +1,45 @@
-Contextualização do cenário na área de banco de dados
-Tudo que fazemos e é registrado são dados - O dados tem o poder de atingir seu público de forma acertiva (otimiza o negócio).
-Os dados precisam ser tratados para ser tranformados em informações úteis (papel do cientista de dados)
-Os dados precisam estar seguros.
+CURSO: Contextualização do cenário na área de banco de dados
+
+- Tudo que fazemos e é registrado são dados - O dados tem o poder de atingir seu público de forma acertiva (otimiza o negócio).
+- Os dados precisam ser tratados para ser tranformados em informações úteis (papel do cientista de dados)
+- Os dados precisam estar seguros (vantagem de ter um sistema de banco de dados).
+- O SBGD permite a restrição ao acesso do banco de dados.
+- 3V (Velocidade, Variedade e Volume)
+
+O que são banco de dados?
+
+- Não é sinônimo de SGBD
+- Os dados são um fato (esta relacionado a algum acontecimento)
+- Banco de dados é um conjunto que dados que transmitem informação
+- Dados é uma coleção de palavras, que dentre elas há relacionamentos entre dados, constituindo então um banco de dados.
+- O SGBD --> tem um contexto (representação do mundo real, Coerência e propósito)
+
+Acessamos os dados geralmente por meio de uma API (sistema busca as informações que foram solicitadas) - Passa de um estado para outro as informações
+
+O que é sistema de banco de dados?
+
+- Principal função é gerenciar os dados
+- Preciso definir o que terá ali dentro (definição);  criar a estrutura que será usada query (construção); 
+como será a manipulção dos dados (Manipulação); criar as regras de compartilhamento (copartilhamento).
+- Possui um ciclo de vida longo do uso do SGBD, Proteção dos dados e gerenciamento de acesso
+- É um software modular
+- os METADADOS são informações que fornecem uma descrição concisa dos dados contidos no BD
+
+O DBA irá definir a construção dos dados (regras) --> Os comandos utilizados por ele são os LDD (Linguagem de Definição de Dados)
+- Trabalha com outros profissionais que irá ajudar a modelar os dados
+
+LDD --> São comandos específicos para definição dos dados (tradução)
+
+LMD --> Linguagem de definição de dados
+
+O SGBD cuida do Storage (movimento dos dados) e Buffer (Troca de memoria)
+
+- Muitas vezes a empresa possui mais de um SGBD ao mesmo tempo que são integrados por meio de um Data warehouse ou um Middleware
+
+- HPC --> Processa mas não armazena as informações
+- Big Data --> Processa e armazena as informações
+
+
+
+CURSO: Explorando a abordagem de SBDs08:19 28/08/2022 
+
