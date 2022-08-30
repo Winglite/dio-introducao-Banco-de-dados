@@ -41,5 +41,82 @@ O SGBD cuida do Storage (movimento dos dados) e Buffer (Troca de memoria)
 
 
 
-CURSO: Explorando a abordagem de SBDs08:19 28/08/2022 
+CURSO: Explorando a abordagem de SBDs08:19 28/08/2022
+
+Aboragem tradicional --> Se tiver alterações precisa modificar a aplicação, Pode ter redundância, esforço repetitivo, inconsistência
+Vantagem SGBD --> Acesso concorrente, consistência dos dados, não precisa alterar a aplicação para consultar mais informções
+
+Características do SGBD
+- Abstração
+- Auto-descrição
+- Isolamento
+- Compartilhamento (gestão de concorrência)
+- Multipla visões
+- Transação multiuser
+
+Natureza auto-descritiva (Schema = estrutura bem definida de como os dados estão organizados)
+- Possui uma descrição de como funcionar
+- Possui os Metadados e Schema
+- Um SGBD pode ter mais de um banco de dados dentro do sistema, basta ter o mesmo schema
+
+Catálogo
+- Mostra as informaçõe do banco de dados (tabela de relacionmentos, colunas, etc)
+
+Isolamento Program/Data e Abtração
+- O isolamento ajuda na manutenção dos dados no banco, sem afetar os usuários
+- abstração é a genarilazação dos dados (independência do programa e dados)
+- Transparência --> Precisa conhecer a estrutura do banco para fazer as consultas
+
+Views
+- Visão de acordo com usuários/setores (cada setor visualiza  query do seu negócio)
+
+Múltiplo acessos
+- Concurrency Control (Mantém os dados coerentes)
+
+OLTP 
+- Online Transaction Processing (registra todas as transações feitas na organização - Ambiente transaional) - Provê performance sem travamentos
+- Gerencia os múltiplos acessos
+- o SGBD deve ser capaz de retroceder um processo, voltando ao estado original
+- Ligado ao ambiente OPERACIAL da empresa
+
+OLAP
+- Online Analytical Processing
+- Parte do banco onde possui os dados para analise
+
+Atores
+- BD simples (poucas pesso utilizam)
+- Big Organizations (muitas pessoas utilizam)
+
+DB Designer: Identicar os dados e requisitos / Represetação e Estrutura / Fase preliminar
+
+DBA: Administra o banco de dados gerenciando os recursos / Autorização de acessos
+
+Usuários finais: Pessoas que acessam os dados por meio de query (update / report) --> Casuais, Ingênuos (interações mais visuais), 
+Sofisticados (já possui conhecimentos em como consultar o banco de dados por querys), Standalone (possui um banco de dados próprio).
+
+Engenheiros de software: Desenvolve as APIs para consultar o banco e trazer as informações.
+
+Vantagens do SGBD
+- Controle de redundância
+- Restrição de acessos
+- Prover persistência
+- Queries
+- Backup e Recovery
+- Prover interface multi-user
+- Integridade de dados
+- Triggers
+
+Ganhos ao usar SGBD
+- Padronização
+- Redução de tempo no desenvolvimento da aplicação
+- Flexibilidade
+- Disponilibilidade de info atualizadas
+- Economia com escala
+
+Quando não usar SGBD
+- Ambiente simples (custo x beneficio)
+- Acesso unário
+- Embedded Sistems (robo)
+
+
 
