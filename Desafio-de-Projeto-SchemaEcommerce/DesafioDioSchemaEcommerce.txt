@@ -1,0 +1,3 @@
+PRIMEIRO DESAFIO DIO BANCO DE DADOS - 09/2022
+
+Construindo um Schema para operação de um ecommerce
