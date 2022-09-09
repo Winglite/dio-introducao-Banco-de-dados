@@ -2,7 +2,7 @@ LEVANTAMENTO DE REQUISITOS
 
 ALUNOS
 
-- A uniersidade possui diversos aluno que podem estar matriculados em mais de um curso (graduação)
+- A uniersidade possui diversos alunos que podem estar matriculados em mais de um curso (graduação)
 - Os alunos podem fazer cursos extras fornecidos externa e internamente (universidade) para contar
 como horas complementares.
 - Não há restrição quanto ao número de materias puxadas e não houver sobreposição de horário.
