@@ -1,16 +1,6 @@
-PRIMEIRO DESAFIO DIO BANCO DE DADOS - 09/2022
+Esse é o primeiro desafio DIO no Bootcamp Database Experience - Básico.
 
-Construindo um Schema para operação de um ecommerce
-
-FOCO DO NEGÓCIO: Venda de produtos
-
-O QUE TEM NESSE PROJETO?
-
-PRODUTO
-CLIENTE
-ESTOQUE
-FORNECEDOR
-PEDIDO
+Nesse desafio será aprensentado um Schema do negócio E-commerce, seguindo os requisitos de negócio descritos abaixo.
 
 LEVANTAMENTO DOS REQUISITOS:
 
@@ -38,8 +28,7 @@ PEDIDO:
 FORNECEDOR e ESTOQUE : Pensar em como fazer.
 
 
-REFINANDO O PROJETO:
-
-- Cliente PJ e PF - uma conta pode ser PJ ou PF, mas não pode ter as duas informações.
-- Pagamento - Pode ter cadastrado mais de uma forma de pagamento
-- Entrega - Possui status e código de rastreio
+O DESAFIO ERA: refinar o modelo nos seguintes pontos:
+- Cliente PJ e PF - Uma conta pode ser PJ ou PF, mas não pode ter duas informações;
+- Pagamento - Pode ter cadastrado mais de uma forma de pagamento;
+- Entrega - Possui status  c´digo de rastreio.
