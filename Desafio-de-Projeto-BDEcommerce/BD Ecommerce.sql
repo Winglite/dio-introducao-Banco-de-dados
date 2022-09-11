@@ -1,0 +1,182 @@
+-- criação do banco de dados para o cenário de E-commerce
+create database ecommerce;
+use ecommerce;
+
+-- criar tabela clientes
+create table clients(
+	idClient int auto_increment primary key,
+    Fname varchar (10) not null,
+    Minit char(1) not null,
+    Lname varchar(10) not null,
+    CPF char(11) not null,
+    Address varchar(30),
+    Bdate varchar(10),
+    constraint unique_cpf_client unique (CPF)
+);
+
+-- criar tabela tipos clientes
+create table clients_type(
+	idTypeClient int auto_increment primary key,
+    CPF char(9),
+    CNPJ char(14),
+    idClient int,
+    constraint unique_cnpj_client unique (CNPJ),
+    constraint fk_TypeClient_if foreign key (idClient) references clients(idClient)
+);
+
+-- criar tabela tipo de pagamentos
+create table payment_type(
+	idPayment_types int auto_increment primary key,
+    Ncard char(9),
+    ValidadeCard varchar(14),
+    NameCard varchar(20),
+    CardType varchar(7),
+    CountNumber varchar(10),
+    CountAg varchar(5),
+	CountOp char(3),
+    PixKey varchar(30),
+    constraint unique_ncard_payment unique (NCard),
+    constraint unique_CountNumber_payment unique (CountNumber),
+    constraint unique_Pix_client unique (PixKey)
+);
+
+-- criar tabela pagamentos clientes
+create table payment_client(
+	idTypeClient int,
+    idPayment_types int,
+    primary key (idTypeClient, idPayment_types),
+    constraint fk_payment_client foreign key (idTypeClient) references clients_type(idTypeClient),
+    constraint fk_payment_type foreign key (idPayment_types) references payment_type(idPayment_types)
+);
+
+-- criar tabela pedido
+create table orders(
+	idOrder int auto_increment primary key,
+    idClient int,
+    OrderStatus enum('processando', 'pagamento confirmado', 'sendo preparado', 'entregue', 'cancelado') default 'processando',
+    Shipping float(8,2) default 10,
+    Descriptions varchar(45),
+    PaymentMet varchar(15) not null,
+    AddressShip varchar(10),
+	constraint fk_orders_client foreign key (idClient) references clients(idClient)
+);
+
+-- criar tabela pagamentos
+create table payments(
+	idPayments int auto_increment primary key,
+    idOrder int,
+	idClient int,
+    idPayment_types int,
+    PaymentStatus enum('processando', 'pagamento confirmado', 'falha no pagamento', 'cancelado') default 'processando',
+	constraint fk_payments_orders foreign key (idOrder) references orders(idOrder),
+    constraint fk_payments_cliente_orders foreign key (idClient) references orders(idClient),
+    constraint fk_payments_payment_type foreign key (idPayment_types) references payment_type(idPayment_types)
+);
+
+
+-- criar tabela entrega de pedidos
+create table Delivery(
+	idDelivery int auto_increment primary key,
+    idOrder int,
+	idClient int,
+    DeliveryStatus enum('na transportadora','saiu para entrega','entregue','falha na entrega'),
+    TrackingCode varchar(10),
+    constraint unique_trackingCode_delivery unique (TrackingCode),
+   	constraint fk_delivery_orders foreign key (idOrder) references orders(idOrder),
+    constraint fk_delivery_client_orders foreign key (idClient) references orders(idClient)
+);
+
+-- criar tabela entrega de pedidos
+create table Delivery(
+	idDelivery int auto_increment primary key,
+    idOrder int,
+	idClient int,
+    DeliveryStatus enum('na transportadora','saiu para entrega','entregue','falha na entrega'),
+    TrackingCode varchar(10),
+    constraint unique_trackingCode_delivery unique (TrackingCode),
+   	constraint fk_delivery_orders foreign key (idOrder) references orders(idOrder),
+    constraint fk_delivery_client_orders foreign key (idClient) references orders(idClient)
+);
+
+
+ -- criar tabela produtos
+create table Product(
+	idProduct int auto_increment primary key,
+    ProductName varchar (45) not null,
+	DescProduct varchar(45),
+    CategoryProd enum('brinquedos', 'moda infantil', 'moda adulta', 'comida', 'utilidades') not null,
+    InventProd int default 0
+    );
+    
+    -- criar tabela produtos por pedido
+create table ProductbyOrder(
+	idProduct int,
+    idOrder int,
+    primary key (idProduct, idOrder),
+    constraint fk_podructorder_product foreign key (idProduct) references Product(idProduct),
+    constraint fk_podructorder_order foreign key (idOrder) references orders(idOrder)
+);
+
+
+ -- criar tabela Armazens
+create table Storages(
+	idStorages int auto_increment primary key,
+    StorageAddress varchar (45) not null
+    );
+    
+
+-- criar tabela produtos por armazens
+create table ProductbyStorages(
+	idProduct int,
+	idStorages int,
+    primary key (idProduct, idStorages),
+    constraint fk_podructstorages_product foreign key (idProduct) references Product(idProduct),
+    constraint fk_podructstaroges_storages foreign key (idStorages) references Storages(idStorages)
+);
+
+
+-- criar tabela Vendedores terceiros
+create table Seller(
+	idSeller int auto_increment primary key,
+    CompanyName varchar(45),
+    TradeName varchar(45),
+    City varchar(45),
+    constraint unique_seller unique (TradeName)
+    
+);
+
+
+-- criar tabela produtos por terceiros
+create table ProductbySeller(
+	idProduct int,
+	idSeller int,
+    Quantity int default 1,
+    Price float(5,2) not null,
+    primary key (idProduct, idSeller),
+    constraint fk_podructsseller_product foreign key (idProduct) references Product(idProduct),
+    constraint fk_podructsseller_seller foreign key (idSeller) references Seller(idSeller)
+);
+
+
+-- criar tabela Fornecedores
+create table Suppliers(
+	idSupplier int auto_increment primary key,
+    CompanyName varchar(45),
+    TradeName varchar(45),
+    City varchar(45),
+    constraint unique_supplier unique (TradeName)
+    
+);
+
+-- criar tabela produtos por fornecedores
+create table ProductbySupplier(
+	idProduct int,
+	idSupplier int,
+    Quantity int default 1,
+    Price float(5,2) not null,
+    primary key (idProduct, idSupplier),
+    constraint fk_podructssupplier_product foreign key (idProduct) references Product(idProduct),
+    constraint fk_podructssupplier_supplier foreign key (idSupplier) references Suppliers(idSupplier)
+);
+
+show tables;
