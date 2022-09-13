@@ -107,7 +107,13 @@ insert into Product(ProductName, DescProduct, CategoryProd, InventProd)
           ('suco uva', 'suco 500ml sabor uva', 'comida', '500'),
           ('abridor de garrafas', 'abridor de garrafas inox', 'utilidades', '30'),
           ('carvão', 'carvão para churrasco', 'utilidades', '50');
+          
+          insert into Product(ProductName, DescProduct, CategoryProd, InventProd)
+	values('jaqueta', 'jaqueta tamanho M', 'moda adulta', '10');
         
+	UPDATE Product SET InventProd ='150' WHERE ProductName='jaqueta';
+    UPDATE Product SET InventProd ='300' WHERE ProductName='abridor de garrafas';
+    
 select * from Product;
 
 -- table ProductbyOrder: (idProduct, idOrder);
@@ -145,7 +151,11 @@ insert into ProductbyStorages (idProduct, idStorages)
           (15, 2),
           (16, 2),
           (19, 2);
-        
+          
+          insert into ProductbyStorages (idProduct, idStorages)
+	values(21, 1);
+    
+            
 select * from ProductbyStorages;
 
 
@@ -176,6 +186,9 @@ insert into Suppliers (CompanyName, TradeName, City)
 	values('tem de tudo', 'importados ltda', 'São Paulo'),
 		  ('Comida legal', 'comida rapida ltda', 'São Paulo'),
           ('Meu refri', 'refrigerantes ltda', 'São Paulo');
+          
+insert into Suppliers (CompanyName, TradeName, City)
+	values('veste kids', 'veste bem ltda', 'São Paulo');
         
 select * from Suppliers;
 
@@ -195,5 +208,8 @@ insert into ProductbySupplier (idProduct, idSupplier, Quantity, Price)
           (14, 3, '500', '6.99'),
           (15, 3, '500', '6.99'),
           (16, 3, '500', '6.99');
+          
+          insert into ProductbySupplier (idProduct, idSupplier, Quantity, Price)
+	values(21, 4, '10', '89.99');
         
 select * from ProductbySupplier;
